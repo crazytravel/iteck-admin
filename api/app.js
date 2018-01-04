@@ -2,9 +2,9 @@ const Koa = require('koa')
 const next = require('next')
 const Router = require('koa-router')
 const cors = require('@koa/cors')
-require('./server/db')
+require('./db')
 
-const Article = require('./server/routes/article')
+const Article = require('./routes/article')
 
 const port = parseInt(process.env.PORT, 10) || 4000
 const dev = process.env.NODE_ENV !== 'production'
@@ -14,6 +14,7 @@ app.prepare().then(() => {
     const server = new Koa()
     const router = new Router()
 
+    // handle SSR actual page route
     router.get('/article/:id', async ctx => {
         const actualPage = '/article'
         await app.render(ctx.req, ctx.res, actualPage, ctx.params)

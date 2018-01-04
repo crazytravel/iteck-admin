@@ -4,16 +4,21 @@
   "repository": "https://github.com/crazytravel/iteck-admin.git",
   "author": "Shuo Wang <wangshuo866@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "mocha": "^4.1.0",
+    "mongoose": "^5.0.0-rc1",
     "next": "^4.2.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "dev": "node ./api/app.js",
+    "build": "next build",
+    "test": "mocha",
+    "start": "NODE_ENV=production node ./api/app.js"
   }
 }
