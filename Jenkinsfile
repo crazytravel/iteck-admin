@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh 'pm2 stop iteck-admin'
-                sh 'pm2 delete iteck-admin'
+                sh 'pm2 stop -s iteck-admin || echo "iteck-admin not running, continue"'
+                sh 'pm2 delete -s iteck-admin || echo "iteck-admin not running, continue"'
             }
         }
         stage('Build') {
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Start') {
             steps {
-                sh 'pm2 restart process.config.js --env production'
+                sh 'pm2 start process.config.js --env production'
             }
         }
     }
