@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Start') {
             steps {
-                sh 'pm2 startOrRestart process.config.js --env production'
+                sh 'pm2 restart process.config.js --env production'
             }
         }
     }

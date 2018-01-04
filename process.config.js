@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-        name: "iteck",
+        name: "iteck-admin",
         script: "./api/app.js",
         watch: true,
         env: {
